@@ -11,7 +11,7 @@ function Product({ data }) {
 
   const addToBasket = () => {
     const existingItemIndex = basket.findIndex(item => item.id === data.id);
-  
+
     if (existingItemIndex !== -1) {
       dispatch({
         type: 'INCREMENT_ITEM_QUANTITY',
@@ -26,30 +26,28 @@ function Product({ data }) {
           image: data.image,
           price: data.price,
           rating: data.rating,
-          quantity: 1, 
+          quantity: 1,
         },
       });
     }
   };
-  
 
   return (
     <div className='product_card'>
-      <p>{data.title}</p>
-      <strong>${data.price}</strong>
-
-      <div>
-        {Array(wholeRating).fill().map((_, index) => (
-          <StarIcon key={index} color="primary" />
-        ))}
-        {hasHalfStar && <StarHalfIcon color="primary" />}
-      </div>
-
       <div className='image_container'>
         <img src={data.image} alt='product_item_image' className='product_img' />
       </div>
-
-      <button onClick={addToBasket}>Add to cart</button>
+      <p className='product_title'>{data.title}</p>
+      <div className='rating_container'>
+        {Array(wholeRating).fill().map((_, index) => (
+          <StarIcon key={index} color='primary' />
+        ))}
+        {hasHalfStar && <StarHalfIcon color='primary' />}
+      </div>
+      <p className='product_price'>${data.price}</p>
+      <button className='add_to_cart_button' onClick={addToBasket}>
+        Add to Cart
+      </button>
     </div>
   );
 }

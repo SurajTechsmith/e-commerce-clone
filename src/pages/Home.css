@@ -35,4 +35,5 @@
   flex-wrap: wrap;
   margin-top: -45px;
   z-index: 1;
+  justify-content: center;
 }
