@@ -1,75 +1,92 @@
-/* CheckoutProduct.css */
-.checkoutPage{
-    display: flex;
-    padding: 20px;
-    background-color: white;
-    height: max-content;
+.checkoutPage {
+  display: flex;
+  padding: 20px;
+  background-color: white;
+  height: max-content;
 }
 
 .checkoutProduct {
-    display: flex;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-  }
-  
-  .checkoutProduct_image {
-    width: 180px;
-    height: 180px;
-    object-fit: contain;
-  }
-  
-  .checkoutProduct_info {
-    padding-left: 20px;
-  }
-  
-  .checkoutProduct_title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .checkoutProduct_price {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .checkoutProduct_rating {
-    margin-bottom: 10px;
-  }
-  
-  .checkoutProduct_rating .MuiSvgIcon-root {
-    font-size: 18px;
-  }
-  
-  .removeFrom_basket {
-    display: flex;
+  display: flex;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.checkoutProduct_image {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+}
+
+.checkoutProduct_info {
+  padding-left: 20px;
+  flex: 1; 
+}
+
+.checkoutProduct_title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.checkoutProduct_price {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.checkoutProduct_rating {
+  margin-bottom: 10px;
+}
+
+.checkoutProduct_rating .MuiSvgIcon-root {
+  font-size: 18px;
+}
+
+.quantity_controls {
+  display: flex;
+  align-items: center;
+  margin-top: 10px; 
+}
+
+.quantity_controls button {
+  background-color: #f0c14b;
+  border: 1px solid;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 0 5px; 
+}
+.remove_from_basket {
+  display: flex;
+  align-items: center;
+  margin-top: 10px; 
+  background-color: #c40000; 
+  border: 1px solid #c40000; 
+  color: white; 
+  padding: 8px 16px; 
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s, border-color 0.2s; 
+}
+
+.remove_from_basket button:hover {
+  background-color: #c70000;
+  border-color: #c70000;
+}
+@media (max-width: 768px) {
+  .checkoutProduct {
+    flex-direction: column;
     align-items: center;
+    text-align: center;
   }
-  
-  .removeFrom_basket button {
-    background-color: #f0c14b;
-    border: 1px solid;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 14px;
+
+  .checkoutProduct_image {
+    width: 100%;
+    height: auto;
   }
-  
-  @media (max-width: 768px) {
-    .checkoutProduct {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-  
-    .checkoutProduct_image {
-      width: 100%;
-      height: auto;
-    }
-  
-    .checkoutProduct_info {
-      padding-left: 0;
-    }
+
+  .checkoutProduct_info {
+    padding-left: 0;
   }
-  
+}

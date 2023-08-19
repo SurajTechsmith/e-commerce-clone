@@ -10,32 +10,46 @@ function Product({ data }) {
   const hasHalfStar = data.rating.rate - wholeRating >= 0.5;
 
   const addToBasket = () => {
-    dispatch({
-      type: 'ADD_TO_BASKET',
-      item: {
+    const existingItemIndex = basket.findIndex(item => item.id === data.id);
+  
+    if (existingItemIndex !== -1) {
+      dispatch({
+        type: 'INCREMENT_ITEM_QUANTITY',
         id: data.id,
-        title: data.title,
-        image: data.image,
-        price: data.price,
-        rating: data.rating,
-      },
-    });
+      });
+    } else {
+      dispatch({
+        type: 'ADD_TO_BASKET',
+        item: {
+          id: data.id,
+          title: data.title,
+          image: data.image,
+          price: data.price,
+          rating: data.rating,
+          quantity: 1, 
+        },
+      });
+    }
   };
+  
 
   return (
     <div className='product_card'>
-      <img src={data.image} alt='product_item_image' className='product_img' />
-      <p className='product_title'>{data.title}</p>
-      <div className='rating_container'>
+      <p>{data.title}</p>
+      <strong>${data.price}</strong>
+
+      <div>
         {Array(wholeRating).fill().map((_, index) => (
-          <StarIcon key={index} color='primary' />
+          <StarIcon key={index} color="primary" />
         ))}
-        {hasHalfStar && <StarHalfIcon color='primary' />}
+        {hasHalfStar && <StarHalfIcon color="primary" />}
       </div>
-      <p className='product_price'>${data.price}</p>
-      <button className='add_to_cart_button' onClick={addToBasket}>
-        Add to Cart
-      </button>
+
+      <div className='image_container'>
+        <img src={data.image} alt='product_item_image' className='product_img' />
+      </div>
+
+      <button onClick={addToBasket}>Add to cart</button>
     </div>
   );
 }
