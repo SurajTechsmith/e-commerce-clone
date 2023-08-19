@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+import React, { useEffect } from "react";
 import './App.css';
-
+import { RouterProvider} from "react-router-dom";
+import appRouter from './Routes'
+import { useStateValue } from "./StateProvider";
+import { auth } from "./firebase";
 function App() {
+const router=appRouter();
+const [{basket},dispatch] = useStateValue();
+useEffect(()=>{
+const unsubscribe = auth.onAuthStateChanged((authUser)=>{
+  if(authUser){
+    dispatch({
+      type: "SET_USER",
+      user:authUser
+    })
+
+  }
+  else {
+    dispatch({
+      type:"SET_USER",
+      user:null,
+    })
+
+  }
+})
+return ()=>{
+  unsubscribe();
+}
+
+},[])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RouterProvider router={router}>
+    </RouterProvider>
+   
   );
 }
 

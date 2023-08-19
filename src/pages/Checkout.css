@@ -1,0 +1,12 @@
+.checkout{
+    display: flex;
+}
+.checkout_ProductList{
+    flex-grow: 1;
+}
+@media (max-width: 768px) 
+{
+.checkout{
+    flex-direction: column-reverse;
+}    
+}
