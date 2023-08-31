@@ -5,7 +5,7 @@ import './CheckoutProduct.css';
 import { useStateValue } from '../StateProvider';
 
 function CheckoutProduct({ item }) {
-  const [{ basket }, dispatch] = useStateValue();
+  const  [{ basket }, dispatch] = useStateValue();
   const wholeRating = Math.floor(item.rating.rate);
   const hasHalfStar = item.rating.rate - wholeRating >= 0.5;
 

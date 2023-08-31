@@ -7,8 +7,7 @@ import './Checkout.css'
 
 
 function Checkout() {
-  const [{basket}]= useStateValue();
-  console.log(basket);
+  const  [{ basket }, dispatch]= useStateValue();
   return (
     <>
 <Header />

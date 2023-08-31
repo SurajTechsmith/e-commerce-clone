@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../images/logo.jpg'
+import logo from '../images/logo.png'
 import './Header.css'
 import { Link } from 'react-router-dom'
 import SearchIcon from '@mui/icons-material/Search';
@@ -42,6 +42,7 @@ function Header() {
 </div>  
 </Link>
 
+
 <Link className='header_link'>
 <div className='header_option'>
 <span className='headerOption_lineOne'>Your</span>
@@ -65,4 +66,4 @@ function Header() {
   )
 }
 
-export default Header
+export default Header;

@@ -9,7 +9,20 @@
   margin: 16px;
   text-align: center;
 }
+.launch-icon{
+  opacity: 0;
+  margin-left: auto;
+}
+.product_card:hover .launch-icon {
+  opacity: 1;
 
+}
+.product_card_link{
+  text-decoration: none;
+ 
+  color: inherit;
+  
+}
 .product_title {
   font-size: 1.2rem;
   font-weight: 600;

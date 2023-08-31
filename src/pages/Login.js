@@ -38,7 +38,7 @@ function SignIn() {
         </p>
         <button className="signin_button" onClick={handleSignIn}>Sign In</button>
       </form>
-      <p className="register_link">Don't have an account? <a href="#" >Create one</a></p>
+      <p className="register_link">Don't have an account? <a href="#dummy_register" >Create one</a></p>
       <h1>for testing:dummy-email@email.com , password:dumbbee </h1>
     </div>
   );

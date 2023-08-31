@@ -3,6 +3,7 @@ import Homepage from './pages/Home'
 import Login from "./pages/Login";
 import Errorp from "./Error"
 import Checkout from "./pages/Checkout";
+import ProductPage from "./pages/ProductPage";
 
 const appRouter = () => {
   return createBrowserRouter([
@@ -12,6 +13,7 @@ const appRouter = () => {
     },
     { path: "/login", Component: Login },
     { path: "/checkout", Component: Checkout },
+    {path:"/product/:productId", Component:ProductPage},
     { path: "*", Component: Errorp }
   ]);
 };
